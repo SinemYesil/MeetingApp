@@ -25,4 +25,10 @@ public class MeetingController : Controller
     {
         return View(Repository.Users);
     }
+
+   // meeting/details/2
+    public IActionResult Details(int id)
+    {
+        return View(Repository.GetById(id));
+    }
 }
