@@ -14,6 +14,12 @@ public class MeetingController : Controller
     {
         return View();
     }
+    [HttpPost]
+    public IActionResult Apply(string Name, string Phone , string Email, bool WillAttend)
+    {
+     
+        return View();
+    }
     public IActionResult List()
     {
         return View();
