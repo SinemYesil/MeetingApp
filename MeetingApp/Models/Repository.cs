@@ -7,16 +7,14 @@ public static class Repository
     static Repository()
     {
         _users.Add(new UserInfo(){ Name = "Sinem", Email = "siinem@sinem.com",Phone = "1111", WillAttend = true });
-        _users.Add(new UserInfo() { Name = "Sinem2", Email = "siinem@sinem.com",Phone = "2222", WillAttend = true });
+        _users.Add(new UserInfo() { Name = "Sinem2", Email = "siinem@sinem.com",Phone = "2222", WillAttend = false });
         _users.Add(new UserInfo() { Name = "Sinem3", Email = "siinem@sinem.com",Phone = "3333", WillAttend = true });
 
     }
 
     public static List<UserInfo> Users{
     get
-    {
-        return _users;
-
+    { return _users;
     }}
 
     public static void CreateUser(UserInfo user)

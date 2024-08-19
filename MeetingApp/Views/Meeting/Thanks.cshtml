@@ -1,20 +1,22 @@
 ﻿@model UserInfo
 @{
-ViewBag.Title = "Başvuru Durumu";
-Layout = "_Layout";
+    ViewBag.Title = "Başvuru Durumu";
+    Layout = "_Layout";
 }
 <main class="text-center">
-    <h1 class="h4  ">Başvuru Durumu</h1>
-    @if (@Model.WillAttend == true)
+    <h1 class="h4">Başvuru Durumu</h1>
+    @if (Model != null && Model.WillAttend == true)
     {
-
-    <p>Teşekkürler, @Model.Name . Toplantıya sizinle birlikte @ViewBag.UserCount kişi katılıyor</p>
-    <a class="btn btn-sm btn-outline-primary" href="#">Katılımcıları listele</a>
+        <p>Teşekkürler, @Model.Name. Toplantıya sizinle birlikte @ViewBag.UserCount kişi katılıyor.</p>
+        <a class="btn btn-sm btn-outline-primary" href="/Meeting/List">Katılımcıları listele</a>
+    }
+    else if (Model != null)
+    {
+        <p>@Model.Name, katılmadığından dolayı üzgünüz.</p>
+        <a class="btn btn-sm btn-outline-primary" href="/Meeting/Apply">Başvuru Formu</a>
     }
     else
     {
-        <p>@Model.Name, katılmadığından dolayı üzgünüz.</p>
-        <a class="btn btn-sm btn-outline-primary" href="/meeting/apply">Başvuru Formu</a>
-
+        <p>Bilgileriniz yüklenemedi. Lütfen tekrar deneyin.</p>
     }
 </main>

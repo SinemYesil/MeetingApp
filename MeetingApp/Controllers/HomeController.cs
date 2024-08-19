@@ -7,12 +7,15 @@ namespace MeetingApp.Controllers
      // localhost/ home
      public IActionResult Index()
      {
+         
             int saat = DateTime.Now.Hour;
        //  int saat = 13;
         // var selamlama = saat > 12 ?
         // // ViewData["Selamlama"]saat>12? "İyi Günler" : "Günaydın";
                                                
          ViewBag.Selamlama=saat>12? "İyi Günler" : "Günaydın";
+         int UserCount = Repository.Users.Where(info => info.WillAttend == true).Count();
+
          //ViewBag.UserName = "Sinem";
 
          var meetingInfo = new MeetingInfo()
@@ -20,7 +23,7 @@ namespace MeetingApp.Controllers
              Id =1, 
              Location = "İzmir-Balçova", 
              Date = new DateTime(2024,08,19,20,0,0),
-             NumberOfPeople = 100
+             NumberOfPeople = UserCount
          };
         
          return View(meetingInfo);
